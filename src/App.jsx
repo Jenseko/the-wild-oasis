@@ -1,23 +1,11 @@
 import styled from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
 import Button from "./ui/Button";
+import Input from "./ui/Input";
+import Heading from "./ui/Heading";
+import Row from "./ui/Row";
 
-const H1 = styled.h1`
-  font-size: 30px;
-  font-weight: 600;
-  background-color: yellow;
-`;
-
-const Input = styled.input`
-  border: 1px solid var(--color-grey-300);
-  background-color: var(--color-grey-0);
-  border-radius: var(--border-radius-sm);
-  padding: 0.8rem 1.2rem;
-  box-shadow: var(--color-brand-500);
-`;
-
-const StyledApp = styled.div`
-  background-color: hotpink;
+const StyledApp = styled.main`
   padding: 20px;
 `;
 
@@ -26,10 +14,28 @@ function App() {
     <>
       <GlobalStyles />
       <StyledApp>
-        <H1>The Wild Oasis</H1>
-        <Button onClick={() => alert("Check In")}>Check-In</Button>
-        <Button onClick={() => alert("Check Out")}>Check-Out</Button>
-        <Input type="number" placeholder="Number of guests"></Input>
+        <Row>
+          <Row type="horizontal">
+            <Heading as="h1">The Wild Oasis</Heading>
+            <div>
+              <Heading as="h2">Personas</Heading>
+              <Button
+                variation="secondary"
+                size="small"
+                onClick={() => alert("Check In")}>
+                Check-In
+              </Button>
+              <Button onClick={() => alert("Check Out")}>Check-Out</Button>
+            </div>
+          </Row>
+          <Row>
+            <Heading as="h2">Check In & Out</Heading>
+            <form>
+              <Input type="number" placeholder="Number of guests"></Input>
+              <Input type="number" placeholder="Number of guests"></Input>
+            </form>
+          </Row>
+        </Row>
       </StyledApp>
     </>
   );
