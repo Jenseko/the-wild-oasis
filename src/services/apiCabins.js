@@ -9,3 +9,10 @@ export async function getCabins() {
   }
   return data;
 }
+
+export async function deleteCabin() {
+  const { data, error } = await supabase
+    .from("cabins")
+    .delete()
+    .eq("some_column", "someValue");
+}
